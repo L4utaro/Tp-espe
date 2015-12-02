@@ -53,17 +53,26 @@ public class MyUI extends UI {
 		navigator.addView(StartView.NAME, new StartView());
 		navigator.addView(BusquedaView.NAME, new BusquedaView());
 		navigator.addView(NuevaBusquedaView.NAME, new NuevaBusquedaView());
+		navigator.addView(ListaBusquedaView.NAME, new ListaBusquedaView());
+		navigator.addView(GrupoBusquedaView.NAME, new GrupoBusquedaView());
+//		navigator.addView(NuevoGrupoBusquedaView.NAME, new NuevoGrupoBusquedaView());
+//		navigator.addView(ListaGrupoBusquedaView.NAME, new ListaGrupoBusquedaView());
 		
 		
+		// TODO Sacar el arbol de la UI y meterlo en su propia clase
 		final Tree tree = new Tree("Menu Principal");
 		tree.setImmediate(true);
-		tree.addItem("Busqueda");
-		tree.addItem("Nueva busqueda");
+		tree.addItem(BusquedaView.NAME);
+		tree.addItem(NuevaBusquedaView.NAME);
+		tree.addItem(ListaBusquedaView.NAME);
+		tree.addItem(GrupoBusquedaView.NAME);
 		
-		tree.setParent("Nueva busqueda", "Busqueda");
+		tree.setParent(NuevaBusquedaView.NAME, BusquedaView.NAME);
+		tree.setParent(ListaBusquedaView.NAME, BusquedaView.NAME);
 		
-		tree.setChildrenAllowed("Nueva busqueda", false);
-		
+		tree.setChildrenAllowed(NuevaBusquedaView.NAME, false);
+		tree.setChildrenAllowed(ListaBusquedaView.NAME, false);
+				
 		tree.addValueChangeListener(new ValueChangeListener() {
 			
 			@Override
@@ -80,7 +89,7 @@ public class MyUI extends UI {
 		hsplit.setFirstComponent(tree);
 		hsplit.setSecondComponent(panel);
 		
-		hsplit.setSplitPosition(30, Unit.PERCENTAGE);
+		hsplit.setSplitPosition(15, Unit.PERCENTAGE);
 		setContent(hsplit);
 		
 
