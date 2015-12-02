@@ -55,8 +55,8 @@ public class MyUI extends UI {
 		navigator.addView(NuevaBusquedaView.NAME, new NuevaBusquedaView());
 		navigator.addView(ListaBusquedaView.NAME, new ListaBusquedaView());
 		navigator.addView(GrupoBusquedaView.NAME, new GrupoBusquedaView());
-//		navigator.addView(NuevoGrupoBusquedaView.NAME, new NuevoGrupoBusquedaView());
-//		navigator.addView(ListaGrupoBusquedaView.NAME, new ListaGrupoBusquedaView());
+		navigator.addView(NuevoGrupoBusquedaView.NAME, new NuevoGrupoBusquedaView());
+		navigator.addView(ListaGrupoBusquedaView.NAME, new ListaGrupoBusquedaView());
 		
 		
 		// TODO Sacar el arbol de la UI y meterlo en su propia clase
@@ -66,19 +66,26 @@ public class MyUI extends UI {
 		tree.addItem(NuevaBusquedaView.NAME);
 		tree.addItem(ListaBusquedaView.NAME);
 		tree.addItem(GrupoBusquedaView.NAME);
+		tree.addItem(NuevoGrupoBusquedaView.NAME);
+		tree.addItem(ListaGrupoBusquedaView.NAME);
 		
 		tree.setParent(NuevaBusquedaView.NAME, BusquedaView.NAME);
 		tree.setParent(ListaBusquedaView.NAME, BusquedaView.NAME);
-		
+		tree.setParent(NuevoGrupoBusquedaView.NAME, GrupoBusquedaView.NAME);
+		tree.setParent(ListaGrupoBusquedaView.NAME, GrupoBusquedaView.NAME);
+				
 		tree.setChildrenAllowed(NuevaBusquedaView.NAME, false);
 		tree.setChildrenAllowed(ListaBusquedaView.NAME, false);
+		tree.setChildrenAllowed(NuevoGrupoBusquedaView.NAME, false);
+		tree.setChildrenAllowed(ListaGrupoBusquedaView.NAME, false);
+		
 				
 		tree.addValueChangeListener(new ValueChangeListener() {
 			
 			@Override
 			public void valueChange(ValueChangeEvent event) {
 				if (tree.getValue() != null){
-					navigator.navigateTo(tree.getValue().toString());
+					getUI().getNavigator().navigateTo(tree.getValue().toString());
 				}
 			}
 		});
@@ -89,7 +96,7 @@ public class MyUI extends UI {
 		hsplit.setFirstComponent(tree);
 		hsplit.setSecondComponent(panel);
 		
-		hsplit.setSplitPosition(15, Unit.PERCENTAGE);
+		hsplit.setSplitPosition(20, Unit.PERCENTAGE);
 		setContent(hsplit);
 		
 
