@@ -7,9 +7,14 @@ import javax.servlet.annotation.WebServlet;
 
 
 
+
+
+
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Widgetset;
+import com.vaadin.data.Property.ValueChangeEvent;
+import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.event.ItemClickEvent;
 import com.vaadin.event.ItemClickEvent.ItemClickListener;
 import com.vaadin.navigator.Navigator;
@@ -46,8 +51,8 @@ public class MyUI extends UI {
 		final Navigator navigator = new Navigator(this, panel);
 		
 		navigator.addView(StartView.NAME, new StartView());
-		navigator.addView(MainView.NAME, new MainView());
 		navigator.addView(BusquedaView.NAME, new BusquedaView());
+		navigator.addView(NuevaBusquedaView.NAME, new NuevaBusquedaView());
 		
 		
 		final Tree tree = new Tree("Menu Principal");
@@ -59,15 +64,17 @@ public class MyUI extends UI {
 		
 		tree.setChildrenAllowed("Nueva busqueda", false);
 		
-		tree.addItemClickListener(new ItemClickListener() {
+		tree.addValueChangeListener(new ValueChangeListener() {
 			
 			@Override
-			public void itemClick(ItemClickEvent event) {
+			public void valueChange(ValueChangeEvent event) {
 				if (tree.getValue() != null){
 					navigator.navigateTo(tree.getValue().toString());
 				}
 			}
 		});
+		
+
 		
 		HorizontalSplitPanel hsplit = new HorizontalSplitPanel();
 		hsplit.setFirstComponent(tree);
