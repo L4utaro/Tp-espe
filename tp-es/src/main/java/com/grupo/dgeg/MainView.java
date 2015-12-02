@@ -8,18 +8,13 @@ import com.vaadin.ui.VerticalLayout;
 
 public class MainView extends VerticalLayout implements View {
 
-	public static final String NAME = "MainView";
+	public static final String NAME = "Busqueda";
 	
 	public MainView(){
 		this.setSizeFull();
 		
-		Button button = new Button("Ir a StartView", new Button.ClickListener() {
-			
-			@Override
-			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().navigateTo(StartView.NAME);
-			}
-		});
+		Button button = new Button(this.NAME);
+		
 		this.addComponent(button);
 	}
 
