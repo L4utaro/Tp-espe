@@ -1,18 +1,24 @@
 package com.grupo.dgeg;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 public class Busqueda {
 	
 	String nombre;
-	@Size(min=1, message="No puede estar vacía")
-	String palabra;
-	int latitud;
-	int longitud;
+	String[] listaPalabras;
 	
-	public Busqueda(String nombre, String palabra, int latitud, int longitud) {
+	@Min(-90)
+	@Max(90)
+	double latitud;
+	@Min(-90)
+	@Max(90)
+	double longitud;
+	
+	public Busqueda(String nombre, String[] listaPalabras, double latitud, double longitud) {
 		this.nombre = nombre;
-		this.palabra = palabra;
+		this.listaPalabras = listaPalabras;
 		this.latitud = latitud;
 		this.longitud = longitud;
 	}
@@ -25,27 +31,27 @@ public class Busqueda {
 		this.nombre = nombre;
 	}
 
-	public String getPalabra() {
-		return palabra;
+	public String[] getListaPalabras() {
+		return listaPalabras;
 	}
 
-	public void setPalabra(String palabra) {
-		this.palabra = palabra;
+	public void setListaPalabras(String[] listaPalabras) {
+		this.listaPalabras = listaPalabras;
 	}
 
-	public int getLatitud() {
+	public double getLatitud() {
 		return latitud;
 	}
 
-	public void setLatitud(int latitud) {
+	public void setLatitud(double latitud) {
 		this.latitud = latitud;
 	}
 
-	public int getLongitud() {
+	public double getLongitud() {
 		return longitud;
 	}
 
-	public void setLongitud(int longitud) {
+	public void setLongitud(double longitud) {
 		this.longitud = longitud;
 	}
 	
