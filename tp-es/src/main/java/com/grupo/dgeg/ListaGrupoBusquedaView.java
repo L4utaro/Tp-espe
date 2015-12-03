@@ -13,7 +13,8 @@ public class ListaGrupoBusquedaView extends VerticalLayout implements View {
 	public ListaGrupoBusquedaView() {
 		BeanItemContainer<GrupoBusqueda> lista = new BeanItemContainer<GrupoBusqueda>(GrupoBusqueda.class);
 		Table table = new Table(NAME, lista);
-		
+		table.setPageLength(0);
+		table.setHeight("100%"); 
 		this.addComponent(table);
 	}
 

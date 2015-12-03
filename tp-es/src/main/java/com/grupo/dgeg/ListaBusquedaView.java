@@ -14,6 +14,8 @@ public class ListaBusquedaView extends VerticalLayout implements View {
 		BeanItemContainer<Busqueda> listaBusquedas = new BeanItemContainer<Busqueda>(Busqueda.class);
 		
 		Table table = new Table(NAME, listaBusquedas);
+		table.setPageLength(0);
+		table.setHeight("100%"); 
 		
 		addComponent(table);
 	}

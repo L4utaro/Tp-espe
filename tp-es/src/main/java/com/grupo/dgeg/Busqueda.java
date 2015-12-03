@@ -1,8 +1,11 @@
 package com.grupo.dgeg;
 
+import javax.validation.constraints.Size;
+
 public class Busqueda {
 	
 	String nombre;
+	@Size(min=1, message="No puede estar vacía")
 	String palabra;
 	int latitud;
 	int longitud;
