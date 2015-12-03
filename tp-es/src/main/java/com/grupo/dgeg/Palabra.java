@@ -1,5 +1,7 @@
 package com.grupo.dgeg;
 
+import javax.validation.constraints.NotNull;
+
 public class Palabra {
 	String palabra;
 

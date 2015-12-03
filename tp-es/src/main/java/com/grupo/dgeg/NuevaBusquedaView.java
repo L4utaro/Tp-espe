@@ -30,7 +30,7 @@ public class NuevaBusquedaView extends VerticalLayout implements View {
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
-				if (!(palabra.getValue().equals(""))){
+				if (palabra != null && (palabra.getValue().trim().length() > 0)){
 					Palabra p = new Palabra(palabra.getValue());
 					palabrasBean.addBean(p);
 					palabra.setValue("");
