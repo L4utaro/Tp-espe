@@ -12,7 +12,10 @@ import com.vaadin.event.FieldEvents.FocusListener;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Component;
+import com.vaadin.ui.FormLayout;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
@@ -43,12 +46,25 @@ public class NuevaBusquedaView extends VerticalLayout implements View {
 				palabraTF.setValue("");
 			}
 		});
+		
+		ComboBox grupos = new ComboBox("Grupos de Busqueda");
+		grupos.setNullSelectionAllowed(false);
+		grupos.setImmediate(true);
 		TextField latitud = new TextField("Latitud");
 		TextField longitud = new TextField("Longitud");
 		Button aceptar = new Button("Aceptar");
 		Button cancelar = new Button("Cancelar");
 		
-		addComponents(nombreTF, palabraTF, table, agregarPalabra, latitud, longitud, aceptar, cancelar);
+		FormLayout mitadSuperior = new FormLayout();
+		HorizontalLayout coordenadas = new HorizontalLayout();
+		coordenadas.addComponents(latitud, longitud);
+		HorizontalLayout botones = new HorizontalLayout();
+		botones.addComponents(aceptar, cancelar);
+		FormLayout mitadInferior = new FormLayout();
+		mitadSuperior.addComponents(nombreTF, palabraTF);
+		mitadInferior.addComponents(agregarPalabra, grupos, coordenadas, botones);
+		
+		addComponents(mitadSuperior, table, mitadInferior);
 		
 	}
 	
