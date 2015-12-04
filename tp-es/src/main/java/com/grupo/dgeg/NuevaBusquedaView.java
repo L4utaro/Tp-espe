@@ -60,9 +60,11 @@ public class NuevaBusquedaView extends VerticalLayout implements View {
 		coordenadas.addComponents(latitud, longitud);
 		HorizontalLayout botones = new HorizontalLayout();
 		botones.addComponents(aceptar, cancelar);
+		VerticalLayout grupoBusquedaLayout = new VerticalLayout();
+		grupoBusquedaLayout.addComponent(grupos);
 		FormLayout mitadInferior = new FormLayout();
 		mitadSuperior.addComponents(nombreTF, palabraTF);
-		mitadInferior.addComponents(agregarPalabra, grupos, coordenadas, botones);
+		mitadInferior.addComponents(agregarPalabra, grupoBusquedaLayout, coordenadas, botones);
 		
 		addComponents(mitadSuperior, table, mitadInferior);
 		

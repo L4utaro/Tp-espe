@@ -3,6 +3,7 @@ package com.grupo.dgeg;
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.ui.Grid;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.VerticalLayout;
 
@@ -13,11 +14,11 @@ public class ListaBusquedaView extends VerticalLayout implements View {
 	public ListaBusquedaView(){
 		BeanItemContainer<Busqueda> listaBusquedas = new BeanItemContainer<Busqueda>(Busqueda.class);
 		
-		Table table = new Table(NAME, listaBusquedas);
-		table.setPageLength(0);
-		table.setHeight("100%"); 
+		Grid grid = new Grid("Grilla", listaBusquedas);
+		grid.setColumnOrder("nombre", "listaPalabras", "grupo", "latitud", "longitud");
+		this.addComponent(grid); 
 		
-		addComponent(table);
+		addComponent(grid);
 	}
 
 	@Override
