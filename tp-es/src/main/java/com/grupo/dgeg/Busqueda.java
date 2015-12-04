@@ -1,5 +1,7 @@
 package com.grupo.dgeg;
 
+import java.util.ArrayList;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
@@ -7,7 +9,7 @@ import javax.validation.constraints.Size;
 public class Busqueda {
 	
 	String nombre;
-	String[] listaPalabras;
+	ArrayList<String> listaPalabrasArrayList;
 	
 	@Min(-90)
 	@Max(90)
@@ -17,9 +19,9 @@ public class Busqueda {
 	double longitud;
 	GrupoBusqueda grupo;
 	
-	public Busqueda(String nombre, String[] listaPalabras, double latitud, double longitud, GrupoBusqueda grupo) {
+	public Busqueda(String nombre, ArrayList<String> listaPalabrasArrayList, double latitud, double longitud, GrupoBusqueda grupo) {
 		this.nombre = nombre;
-		this.listaPalabras = listaPalabras;
+		this.listaPalabrasArrayList = listaPalabrasArrayList;
 		this.latitud = latitud;
 		this.longitud = longitud;
 		this.grupo = grupo;
@@ -33,12 +35,12 @@ public class Busqueda {
 		this.nombre = nombre;
 	}
 
-	public String[] getListaPalabras() {
-		return listaPalabras;
+	public ArrayList<String> getListaPalabras() {
+		return listaPalabrasArrayList;
 	}
 
-	public void setListaPalabras(String[] listaPalabras) {
-		this.listaPalabras = listaPalabras;
+	public void setListaPalabras(ArrayList<String> listaPalabras) {
+		this.listaPalabrasArrayList = listaPalabras;
 	}
 
 	public double getLatitud() {
