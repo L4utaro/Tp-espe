@@ -29,12 +29,11 @@ public class NuevaBusquedaView extends VerticalLayout implements View {
 		
 		final Table table = new Table("Palabras a buscar", palabrasBean);
 		table.setColumnExpandRatio(null, 1.0f);
+		table.setPageLength(0);
+		table.setHeight("100%"); 
 		
 		final Container container = new IndexedContainer();
 		container.addContainerProperty("Palabra", String.class, "");
-		
-		table.setPageLength(0);
-		table.setHeight("100%"); 
 		
 		Button agregarPalabra = new Button("Agregar palabra", new ClickListener() {
 			
@@ -63,9 +62,7 @@ public class NuevaBusquedaView extends VerticalLayout implements View {
 	}
 
 	private void actualizarTabla(Table t) {
-		for (Object component : t) {
-			t.setColumnWidth(component, -1);
-		}
+		t.setColumnWidth("Palabra", -1);
 	}
 
 	private boolean palabraValida(String palabra, Container c) {

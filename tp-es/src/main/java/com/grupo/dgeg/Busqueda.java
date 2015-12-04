@@ -15,12 +15,14 @@ public class Busqueda {
 	@Min(-90)
 	@Max(90)
 	double longitud;
+	GrupoBusqueda grupo;
 	
-	public Busqueda(String nombre, String[] listaPalabras, double latitud, double longitud) {
+	public Busqueda(String nombre, String[] listaPalabras, double latitud, double longitud, GrupoBusqueda grupo) {
 		this.nombre = nombre;
 		this.listaPalabras = listaPalabras;
 		this.latitud = latitud;
 		this.longitud = longitud;
+		this.grupo = grupo;
 	}
 
 	public String getNombre() {
@@ -53,6 +55,14 @@ public class Busqueda {
 
 	public void setLongitud(double longitud) {
 		this.longitud = longitud;
+	}
+
+	public GrupoBusqueda getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(GrupoBusqueda grupo) {
+		this.grupo = grupo;
 	}
 	
 	
