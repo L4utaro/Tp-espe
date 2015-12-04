@@ -83,6 +83,8 @@ public class NuevaBusquedaView extends VerticalLayout implements View {
 					//TODO pedir grupo de DB
 					GrupoBusqueda grupo = new GrupoBusqueda("Nombre", "Descripcion");
 					Busqueda busqueda = new Busqueda(nombreBusqueda, listaPalabrasArrayList, latitud, longitud, grupo);
+					BusquedaDAO dao = new BusquedaDAO();
+					dao.guardar(busqueda);
 				}
 				else{
 					Notification.show("Error: no se pudo crear la Busqueda");

@@ -2,6 +2,7 @@ package com.grupo.dgeg;
 
 import org.neodatis.odb.ODB;
 
+
 import org.neodatis.odb.ODBFactory;
 
 public class Conexion {
